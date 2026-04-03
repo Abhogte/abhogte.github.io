@@ -3,108 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name | Portfolio</title>
+<title>Aditya Bhogte | Portfolio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --blue:#1a56db;--blue-light:#e8f0fe;--blue-dark:#1240a8;
-  --purple:#6d28d9;--purple-light:#ede9fe;--purple-mid:#8b5cf6;
-  --black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f8fafc;
-  --white:#ffffff;--border:#e2e8f0
-}
+:root{--blue:#1a56db;--blue-light:#e8f0fe;--blue-dark:#1240a8;--purple:#6d28d9;--purple-light:#ede9fe;--black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f8fafc;--white:#ffffff;--border:#e2e8f0}
 body{font-family:system-ui,-apple-system,sans-serif;color:var(--black);background:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:60px}
-.nav-name{font-weight:700;font-size:16px;color:var(--black)}
+.nav-name{font-weight:700;font-size:16px}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:13px;color:var(--gray-mid);font-weight:500;transition:color 0.15s}
+.nav-links a{font-size:13px;color:var(--gray-mid);font-weight:500}
 .nav-links a:hover{color:var(--blue)}
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#1e3a8a 100%);padding:6rem 5% 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;min-height:92vh}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#93c5fd;background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.2);padding:5px 14px;border-radius:20px;margin-bottom:1.5rem}
-.hero h1{font-size:52px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:var(--white);margin-bottom:0.75rem}
-.hero h1 span{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-title{font-size:18px;color:#93c5fd;font-weight:500;margin-bottom:1.25rem}
-.hero-sub{font-size:15px;color:#94a3b8;margin-bottom:2.5rem;line-height:1.8}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1.5px solid transparent}
-.btn-primary{background:var(--blue);color:var(--white);border-color:var(--blue)}
-.btn-primary:hover{background:var(--blue-dark)}
-.btn-ghost{background:rgba(255,255,255,0.08);color:var(--white);border-color:rgba(255,255,255,0.2)}
-.btn-ghost:hover{background:rgba(255,255,255,0.15)}
-.hero-right{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem}
-.hero-stat{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
-.hero-stat:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.hero-stat-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#60a5fa;margin-bottom:4px}
-.hero-stat-val{font-size:14px;color:#e2e8f0;line-height:1.5}
-.wrap{max-width:1200px;margin:0 auto;padding:0 5%}
-section{padding:5rem 0;border-top:1px solid var(--border)}
-.section-header{margin-bottom:3rem}
-.section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-.section-title{font-size:32px;font-weight:800;color:var(--black);letter-spacing:-0.01em}
-.exp-list,.edu-grid,.ta-grid{display:flex;flex-direction:column}
-.exp-item,.edu-item,.ta-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2rem 0;border-bottom:1px solid var(--border)}
-.exp-item:last-child,.edu-item:last-child,.ta-item:last-child{border-bottom:none}
-.exp-left{display:flex;flex-direction:column;gap:8px}
-.exp-date{font-size:12px;color:var(--gray-mid);font-weight:600;background:var(--gray-light);padding:4px 10px;border-radius:6px;display:inline-block;width:fit-content}
-.exp-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;display:inline-block;width:fit-content;margin-top:4px}
-.badge-primary{background:#e8f0fe;color:#1a56db}
-.badge-secondary{background:#ede9fe;color:#5b21b6}
-.exp-role{font-size:17px;font-weight:700;color:var(--black);margin-bottom:3px}
-.exp-org{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:8px}
-.exp-desc{font-size:14px;color:var(--gray-mid);line-height:1.75}
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:12px;transition:all 0.2s;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
-.card.blue::before{background:linear-gradient(90deg,#1a56db,#3b82f6)}
-.card.purple::before{background:linear-gradient(90deg,#6d28d9,#8b5cf6)}
-.card.teal::before{background:linear-gradient(90deg,#0891b2,#06b6d4)}
-.card.green::before{background:linear-gradient(90deg,#059669,#34d399)}
-.card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);transform:translateY(-2px);border-color:#cbd5e1}
-.card-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;width:fit-content}
-.tag-blue{background:var(--blue-light);color:var(--blue)}
-.tag-purple{background:var(--purple-light);color:var(--purple)}
-.tag-teal{background:#e0f2fe;color:#0369a1}
-.tag-green{background:#d1fae5;color:#065f46}
-.card h3{font-size:15px;font-weight:700;color:var(--black);line-height:1.35}
-.card-sub{font-size:12px;font-weight:600;color:var(--blue);margin-top:-6px}
-.card p{font-size:13px;color:var(--gray-mid);line-height:1.7;flex:1}
-.card-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-.card-link{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-light);border-radius:6px;padding:5px 14px;transition:background 0.15s}
-.card-link:hover{background:#d1e3fc}
-.card-link.plain{color:var(--gray-mid);background:var(--gray-light)}
-.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.skill-group{background:var(--gray-light);border-radius:12px;padding:1.25rem}
-.skill-group h4{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{font-size:12px;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--white);color:var(--gray-dark);border:1px solid var(--border)}
-.contact-box{background:linear-gradient(135deg,#0f172a,#1e1b4b,#1e3a8a);border-radius:20px;padding:4rem;color:var(--white);text-align:center}
-.contact-box h3{font-size:28px;font-weight:800;margin-bottom:12px}
-.contact-box p{font-size:15px;opacity:0.75;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto}
-.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.contact-btn{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);color:var(--white);padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;transition:background 0.15s}
-.contact-btn:hover{background:rgba(255,255,255,0.2)}
-.footer{padding:2rem 5%;text-align:center;color:var(--gray-mid);font-size:13px}
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding:4rem 5%}
-  .hero-btns{justify-content:center}
-  .project-grid{grid-template-columns:repeat(2,1fr)}
-  .skills-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:640px){
-  .hero h1{font-size:36px}
-  .project-grid,.skills-grid{grid-template-columns:1fr}
-  .exp-item,.edu-item,.ta-item{grid-template-columns:1fr;gap:1rem}
-  nav{padding:0 1.25rem}
-  .wrap{padding:0 1.25rem}
-  .hero{padding:3rem 1.25rem}
-  .contact-box{padding:2.5rem 1.5rem}
-  .nav-links{gap:1rem;font-size:12px}
-}
+.hero{background:linear-gradient(135deg,#0f172a,#1e1b4b,#1e3a8a);padding:6rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.hero h1{font-size:48px;color:#fff}
+.hero h1 span{color:#60a5fa}
+.hero-title{color:#93c5fd}
+.hero-sub{color:#94a3b8}
+.hero-btns{margin-top:1rem;display:flex;gap:10px}
+.btn{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-ghost{background:rgba(255,255,255,0.1);color:#fff}
+.hero-right{background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;text-align:center}
+.profile-img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:1rem;border:3px solid rgba(255,255,255,0.2)}
+.wrap{max-width:1100px;margin:auto;padding:0 5%}
+section{padding:4rem 0}
+.section-title{font-size:28px;margin-bottom:1rem}
+.exp-item{margin-bottom:1.5rem}
+.card{border:1px solid var(--border);padding:1rem;border-radius:10px;margin-bottom:1rem}
+.skills span{display:inline-block;margin:4px;padding:6px 10px;background:#eee;border-radius:6px;font-size:12px}
+.contact{text-align:center}
+.footer{text-align:center;padding:2rem;color:var(--gray-mid)}
 </style>
 </head>
 <body>
 <nav>
-  <span class="nav-name">Your Name</span>
+  <span class="nav-name">Aditya Bhogte</span>
   <div class="nav-links">
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
@@ -114,191 +47,65 @@ section{padding:5rem 0;border-top:1px solid var(--border)}
 </nav>
 
 <div class="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">Open to Opportunities · Based in Your City</div>
-    <h1>Your <span>Name</span></h1>
-    <div class="hero-title">Your Role 1 · Your Role 2 · Your Role 3</div>
-    <p class="hero-sub">Write a 2–3 line summary about what you do, what problems you solve, and the kind of roles or projects you are looking for.</p>
+  <div>
+    <h1>Aditya <span>Bhogte</span></h1>
+    <div class="hero-title">Software Engineer · Backend · Agentic AI</div>
+    <p class="hero-sub">4+ years of experience in backend development and AI systems. Strong foundation in API design, scalable systems, and building in high-velocity environments.</p>
     <div class="hero-btns">
-      <a href="https://www.linkedin.com/in/your-linkedin" class="btn btn-primary" target="_blank">LinkedIn</a>
-      <a href="mailto:youremail@example.com" class="btn btn-ghost">Email Me</a>
-      <a href="#projects" class="btn btn-ghost">View Work</a>
+      <a href="https://www.linkedin.com/in/adityabhogte/" class="btn btn-primary" target="_blank">LinkedIn</a>
+      <a href="mailto:abhogte@gmail.com" class="btn btn-ghost">Email</a>
+      <a href="https://github.com/Abhogte" class="btn btn-ghost" target="_blank">GitHub</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-stat">
-      <div class="hero-stat-label">Currently</div>
-      <div class="hero-stat-val">Your current role, company, or focus area</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-label">Education</div>
-      <div class="hero-stat-val">Your degree, school, or current program</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-label">Based in</div>
-      <div class="hero-stat-val">Your location</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-label">Looking for</div>
-      <div class="hero-stat-val">Full-time roles, internships, freelance work, research, etc.</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-label">Interests</div>
-      <div class="hero-stat-val">Add 4–6 interests separated by dots or commas</div>
-    </div>
+    <!-- Replace with your image URL -->
+    <img src="https://via.placeholder.com/150" class="profile-img" alt="Profile">
+    <p><b>Location:</b> Seattle, WA, USA</p>
+    <p><b>Role:</b> Software Development Engineer II</p>
+    <p><b>Looking for:</b> Full-time roles in Software Development & AI Engineering</p>
   </div>
 </div>
 
 <div class="wrap">
-  <section id="experience">
-    <div class="section-header">
-      <div class="section-label">Career</div>
-      <div class="section-title">Experience</div>
-    </div>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-left">
-          <div class="exp-date">Month Year – Present</div>
-          <span class="exp-badge badge-secondary">Current</span>
-        </div>
-        <div>
-          <div class="exp-role">Your Job Title</div>
-          <div class="exp-org">Company or Organization</div>
-          <div class="exp-desc">Describe the impact you made, the tools you used, and the outcome. Keep it concrete and measurable when possible.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-left">
-          <div class="exp-date">Month Year – Month Year</div>
-          <span class="exp-badge badge-primary">Experience</span>
-        </div>
-        <div>
-          <div class="exp-role">Previous Role</div>
-          <div class="exp-org">Company or Organization</div>
-          <div class="exp-desc">Add a second experience entry here with your main responsibilities, tools, and achievements.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="projects">
-    <div class="section-header">
-      <div class="section-label">Work</div>
-      <div class="section-title">Projects</div>
-    </div>
-    <div class="project-grid">
-      <div class="card blue">
-        <span class="card-tag tag-blue">Featured Project</span>
-        <h3>Project One Title</h3>
-        <div class="card-sub">Short subtitle or project type</div>
-        <p>Explain what the project does, why you built it, the technologies you used, and the result or value it created.</p>
-        <div class="card-links">
-          <a href="https://github.com/yourusername/project-one" class="card-link" target="_blank">GitHub</a>
-          <a href="https://your-live-demo-link.com" class="card-link plain" target="_blank">Live Demo</a>
-        </div>
-      </div>
-      <div class="card purple">
-        <span class="card-tag tag-purple">AI / Data</span>
-        <h3>Project Two Title</h3>
-        <div class="card-sub">Short subtitle or project type</div>
-        <p>Describe the problem, methods, and results in a concise and professional way.</p>
-        <div class="card-links">
-          <a href="#" class="card-link plain">Python · SQL · ML</a>
-        </div>
-      </div>
-      <div class="card teal">
-        <span class="card-tag tag-teal">Analytics</span>
-        <h3>Project Three Title</h3>
-        <div class="card-sub">Dashboard, app, research, or case study</div>
-        <p>Summarize the project outcome and the most important tools or ideas involved.</p>
-        <div class="card-links">
-          <a href="https://github.com/yourusername/project-three" class="card-link" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="card green">
-        <span class="card-tag tag-green">Product</span>
-        <h3>Project Four Title</h3>
-        <p>Add another project if you want more depth in your portfolio.</p>
-        <div class="card-links">
-          <a href="#" class="card-link plain">Next.js · API · UX</a>
-        </div>
-      </div>
-      <div class="card purple">
-        <span class="card-tag tag-purple">Research</span>
-        <h3>Project Five Title</h3>
-        <p>Use this section for a paper, capstone, thesis, experiment, or major technical build.</p>
-        <div class="card-links">
-          <a href="#" class="card-link plain">Paper / Poster / GitHub</a>
-        </div>
-      </div>
-      <div class="card blue">
-        <span class="card-tag tag-blue">Open Source</span>
-        <h3>Project Six Title</h3>
-        <p>Use this card for an open-source contribution, freelance project, or collaboration.</p>
-        <div class="card-links">
-          <a href="#" class="card-link plain">Contribution Link</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="experience">
+<h2 class="section-title">Experience</h2>
 
-  <section id="skills">
-    <div class="section-header">
-      <div class="section-label">Capabilities</div>
-      <div class="section-title">Skills</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>Programming</h4>
-        <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Git</span></div>
-      </div>
-      <div class="skill-group">
-        <h4>Data / ML</h4>
-        <div class="skill-tags"><span class="skill-tag">pandas</span><span class="skill-tag">scikit-learn</span><span class="skill-tag">EDA</span><span class="skill-tag">Modeling</span></div>
-      </div>
-      <div class="skill-group">
-        <h4>Tools</h4>
-        <div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Docker</span></div>
-      </div>
-      <div class="skill-group">
-        <h4>Cloud / Workflow</h4>
-        <div class="skill-tags"><span class="skill-tag">GitHub</span><span class="skill-tag">GCP</span><span class="skill-tag">APIs</span><span class="skill-tag">Automation</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-header">
-      <div class="section-label">Background</div>
-      <div class="section-title">Education</div>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-item">
-        <div class="exp-left">
-          <div class="exp-date">Graduation Month Year</div>
-        </div>
-        <div>
-          <div class="exp-role">Your Degree</div>
-          <div class="exp-org">University Name</div>
-          <div class="exp-desc">Concentration, honors, or relevant focus areas</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact-box">
-      <h3>Let’s Connect</h3>
-      <p>I’m open to opportunities, collaborations, and conversations around technology, analytics, and product building.</p>
-      <div class="contact-links">
-        <a href="mailto:youremail@example.com" class="contact-btn">Email</a>
-        <a href="https://www.linkedin.com/in/your-linkedin" class="contact-btn" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourusername" class="contact-btn" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </section>
+<div class="exp-item">
+<b>Software Development Engineer II — Expedia Inc</b><br>
+<small>Dec 2022 – Present</small>
+<p>Built RAG-powered systems to enforce Kubernetes best practices in PR workflows. Developed Java Spring Boot APIs improving hotel application efficiency. Built LLM-powered PR bot with deduplication logic.</p>
 </div>
 
-<div class="footer">© 2026 Your Name. Built with HTML and CSS. Hosted on GitHub Pages.</div>
+<div class="exp-item">
+<b>Software Engineer — TCS</b><br>
+<small>Sep 2021 – Dec 2022</small>
+<p>Developed backend features using Java, SQL, Spring Boot. Processed large datasets on GCP improving transformation speed by 50%. Used Docker and GitLab for deployment and version control.</p>
+</div>
+
+<div class="exp-item">
+<b>Software Engineer Intern — IpserLab</b><br>
+<small>Jul 2021 – Sep 2021</small>
+<p>Built shopping cart module and optimized login system improving performance by 65%.</p>
+</div>
+
+</section>
+
+<section id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="skills">
+<span>Java</span><span>Spring Boot</span><span>Python</span><span>SQL</span><span>Docker</span><span>Kubernetes</span><span>LLMs</span><span>RAG</span><span>Git</span>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2 class="section-title">Contact</h2>
+<p>Email: abhogte@gmail.com</p>
+<p><a href="https://www.linkedin.com/in/adityabhogte/">LinkedIn</a> · <a href="https://github.com/Abhogte">GitHub</a></p>
+</section>
+
+</div>
+
+<div class="footer">© 2026 Aditya Bhogte</div>
 </body>
 </html>
