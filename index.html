@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Bhogte | Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a56db;--blue-light:#e8f0fe;--blue-dark:#1240a8;
+  --purple:#6d28d9;--purple-light:#ede9fe;--purple-mid:#8b5cf6;
+  --black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f8fafc;
+  --white:#ffffff;--border:#e2e8f0
+}
+body{font-family:system-ui,-apple-system,sans-serif;color:var(--black);background:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-name{font-weight:700;font-size:16px;color:var(--black)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--gray-mid);font-weight:500;transition:color 0.15s}
+.nav-links a:hover{color:var(--blue)}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#1e3a8a 100%);padding:6rem 5% 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;min-height:92vh}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#93c5fd;background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.2);padding:5px 14px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-size:52px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:var(--white);margin-bottom:0.75rem}
+.hero h1 span{color:var(--white);background:none;-webkit-background-clip:border-box;-webkit-text-fill-color:var(--white)}
+.hero-title{font-size:18px;color:#93c5fd;font-weight:500;margin-bottom:1.25rem}
+.hero-sub{font-size:15px;color:#94a3b8;margin-bottom:2.5rem;line-height:1.8}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1.5px solid transparent}
+.btn-primary{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-ghost{background:rgba(255,255,255,0.08);color:var(--white);border-color:rgba(255,255,255,0.2)}
+.btn-ghost:hover{background:rgba(255,255,255,0.15)}
+.hero-right{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem}
+.profile-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.profile-photo{
+  width:132px;
+  height:132px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,0.18);
+}
+.hero-stat{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.hero-stat:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.hero-stat-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#60a5fa;margin-bottom:4px}
+.hero-stat-val{font-size:14px;color:#e2e8f0;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 5%}
+section{padding:5rem 0;border-top:1px solid var(--border)}
+.section-header{margin-bottom:3rem}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.section-title{font-size:32px;font-weight:800;color:var(--black);letter-spacing:-0.01em}
+.exp-list,.edu-grid,.ta-grid{display:flex;flex-direction:column}
+.exp-item,.edu-item,.ta-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2rem 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child,.edu-item:last-child,.ta-item:last-child{border-bottom:none}
+.exp-left{display:flex;flex-direction:column;gap:8px}
+.exp-date{font-size:12px;color:var(--gray-mid);font-weight:600;background:var(--gray-light);padding:4px 10px;border-radius:6px;display:inline-block;width:fit-content}
+.exp-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;display:inline-block;width:fit-content;margin-top:4px}
+.badge-primary{background:#e8f0fe;color:#1a56db}
+.badge-secondary{background:#ede9fe;color:#5b21b6}
+.exp-role{font-size:17px;font-weight:700;color:var(--black);margin-bottom:3px}
+.exp-org{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:8px}
+.exp-desc{font-size:14px;color:var(--gray-mid);line-height:1.75}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:12px;transition:all 0.2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.card.blue::before{background:linear-gradient(90deg,#1a56db,#3b82f6)}
+.card.purple::before{background:linear-gradient(90deg,#6d28d9,#8b5cf6)}
+.card.teal::before{background:linear-gradient(90deg,#0891b2,#06b6d4)}
+.card.green::before{background:linear-gradient(90deg,#059669,#34d399)}
+.card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);transform:translateY(-2px);border-color:#cbd5e1}
+.card-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;width:fit-content}
+.tag-blue{background:var(--blue-light);color:var(--blue)}
+.tag-purple{background:var(--purple-light);color:var(--purple)}
+.tag-teal{background:#e0f2fe;color:#0369a1}
+.tag-green{background:#d1fae5;color:#065f46}
+.card h3{font-size:15px;font-weight:700;color:var(--black);line-height:1.35}
+.card-sub{font-size:12px;font-weight:600;color:var(--blue);margin-top:-6px}
+.card p{font-size:13px;color:var(--gray-mid);line-height:1.7;flex:1}
+.card-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.card-link{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-light);border-radius:6px;padding:5px 14px;transition:background 0.15s}
+.card-link:hover{background:#d1e3fc}
+.card-link.plain{color:var(--gray-mid);background:var(--gray-light)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.skill-group{background:var(--gray-light);border-radius:12px;padding:1.25rem}
+.skill-group h4{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{font-size:12px;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--white);color:var(--gray-dark);border:1px solid var(--border)}
+.contact-box{background:linear-gradient(135deg,#0f172a,#1e1b4b,#1e3a8a);border-radius:20px;padding:4rem;color:var(--white);text-align:center}
+.contact-box h3{font-size:28px;font-weight:800;margin-bottom:12px}
+.contact-box p{font-size:15px;opacity:0.75;margin-bottom:2rem;max-width:580px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-btn{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);color:var(--white);padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;transition:background 0.15s}
+.contact-btn:hover{background:rgba(255,255,255,0.2)}
+.footer{padding:2rem 5%;text-align:center;color:var(--gray-mid);font-size:13px}
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding:4rem 5%}
+  .hero-btns{justify-content:center}
+  .project-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .hero h1{font-size:36px}
+  .project-grid,.skills-grid{grid-template-columns:1fr}
+  .exp-item,.edu-item,.ta-item{grid-template-columns:1fr;gap:1rem}
+  nav{padding:0 1.25rem}
+  .wrap{padding:0 1.25rem}
+  .hero{padding:3rem 1.25rem}
+  .contact-box{padding:2.5rem 1.5rem}
+  .nav-links{gap:1rem;font-size:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <span class="nav-name">Aditya Bhogte</span>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Seattle, WA · Open to Full-Time Roles</div>
+    <h1>Aditya <span>Bhogte</span></h1>
+    <div class="hero-title">Software Development Engineer II · Backend Engineer · Agentic AI</div>
+    <p class="hero-sub">Software engineer with 4+ years of experience in backend development and Agentic AI. Strong foundation in API design, scalable systems, and delivering production-ready solutions in high-pace environments.</p>
+    <div class="hero-btns">
+      <a href="https://www.linkedin.com/in/adityabhogte/" class="btn btn-primary" target="_blank">LinkedIn</a>
+      <a href="mailto:abhogte@gmail.com" class="btn btn-ghost">Email Me</a>
+      <a href="https://github.com/Abhogte" class="btn btn-ghost" target="_blank">GitHub</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="profile-wrap">
+      <img src="profile.jpg" alt="Aditya Bhogte" class="profile-photo">
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Currently</div>
+      <div class="hero-stat-val">Software Development Engineer II at Expedia Inc</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Education</div>
+      <div class="hero-stat-val">Master's Degree in Computer Science — The University of Texas at Arlington</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Based in</div>
+      <div class="hero-stat-val">Seattle, WA, USA</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Looking for</div>
+      <div class="hero-stat-val">Full-time roles in Software Development and AI Engineering</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-label">Interests</div>
+      <div class="hero-stat-val">Backend Systems · APIs · Agentic AI · LLM Applications · Platform Engineering</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <div class="section-title">Experience</div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">Dec 2022 – Present</div>
+          <span class="exp-badge badge-secondary">Current</span>
+        </div>
+        <div>
+          <div class="exp-role">Software Development Engineer II</div>
+          <div class="exp-org">Expedia Inc</div>
+          <div class="exp-desc">Applied RAG-powered LLM reasoning to enforce Kubernetes best practices and surface contextual remediation steps for Helm patterns directly in pull requests, reducing manual review effort and improving deployment reliability. Developed Java and Spring Boot backend services with REST APIs and Maven to improve operational efficiency for hotel application workflows. Optimized a PR review bot that scans code changes, uses LLM-based suggestions, and persists hidden HTML metadata in GitHub review comments to prevent duplicate review noise through line-agnostic deduplication.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">Sep 2021 – Dec 2022</div>
+          <span class="exp-badge badge-primary">Experience</span>
+        </div>
+        <div>
+          <div class="exp-role">Software Engineer</div>
+          <div class="exp-org">Tata Consultancy Services Ltd</div>
+          <div class="exp-desc">Developed features for a banking portal using Java, SQL, and Spring Boot, contributing to secure and scalable backend functionality. Extracted large-scale datasets from Google Cloud data lakes, cleaned duplicates and inconsistent records, and improved data transformation speed by 50%. Used Docker to containerize ETL scripts and GitLab to manage source code and track changes efficiently.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">Jul 2021 – Sep 2021</div>
+          <span class="exp-badge badge-primary">Internship</span>
+        </div>
+        <div>
+          <div class="exp-role">Software Engineer Intern</div>
+          <div class="exp-org">IpserLab LLC</div>
+          <div class="exp-desc">Designed and developed a shopping cart module for a grocery vendor using JavaScript and CSS, and optimized the login workflow, improving login performance by 65% through more efficient implementation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <div class="section-label">Work</div>
+      <div class="section-title">Projects</div>
+    </div>
+    <div class="project-grid">
+      <div class="card blue">
+        <span class="card-tag tag-blue">Cloud Engineering</span>
+        <h3>Multi-Cloud Development & Performance Optimization</h3>
+        <div class="card-sub">Flask · Redis · AWS · Azure · JMeter</div>
+        <p>Developed and deployed a Flask-based web application across AWS Elastic Beanstalk and Microsoft Azure, enabling scalable multi-cloud availability. Implemented Redis caching on Azure, improving system response time by 40% through reduced redundant database calls. Integrated load balancing and auto-scaling tested with JMeter, increasing application performance and durability under heavy traffic by 80%.</p>
+        <div class="card-links">
+          <span class="card-link plain">Flask · Multi-cloud</span>
+        </div>
+      </div>
+      <div class="card purple">
+        <span class="card-tag tag-purple">Data Extraction</span>
+        <h3>Web Data Extraction & API Integration</h3>
+        <div class="card-sub">Python · REST APIs · SQLite · SQLAlchemy</div>
+        <p>Accessed Stack Overflow REST APIs to extract Q&A datasets and stored structured results using SQLAlchemy for efficient querying and retrieval. Scraped and processed the top 500 movie records from Metacritic using Python to extract titles, directors, and cast, generating a dataset for analysis.</p>
+        <div class="card-links">
+          <a href="https://github.com/Abhogte/WebScrapping" class="card-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="card teal">
+        <span class="card-tag tag-teal">Backend Systems</span>
+        <h3>Airline Booking System</h3>
+        <div class="card-sub">Java · MySQL</div>
+        <p>Designed a performance-optimized database with efficient query handling, triggers, and CRUD logic for an airline booking workflow, improving complex execution speed while keeping the backend logic structured and maintainable.</p>
+        <div class="card-links">
+          <a href="https://github.com/Abhogte/AirlineBookingSystem" class="card-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <div class="section-title">Skills</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Programming</h4>
+        <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span><span class="skill-tag">OOP</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">REST API</span><span class="skill-tag">XML</span><span class="skill-tag">JSON</span><span class="skill-tag">jQuery</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>AI & LLM Technologies</h4>
+        <div class="skill-tags"><span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span><span class="skill-tag">Vector Databases</span><span class="skill-tag">Gleen</span><span class="skill-tag">Human-in-loop</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>Web / Frameworks</h4>
+        <div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Flask</span><span class="skill-tag">REST</span><span class="skill-tag">JWT Authentication</span><span class="skill-tag">Mockito</span><span class="skill-tag">Gatus</span><span class="skill-tag">Selenium</span><span class="skill-tag">Cypress</span><span class="skill-tag">GraphQL</span><span class="skill-tag">Redis</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>Databases / Cloud / Tools</h4>
+        <div class="skill-tags"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">Oracle DB</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Google Cloud</span><span class="skill-tag">Pub/Sub</span><span class="skill-tag">IAM</span><span class="skill-tag">Cloud Storage</span><span class="skill-tag">KMS</span><span class="skill-tag">Buckets</span><span class="skill-tag">Load Balancer</span><span class="skill-tag">Secret Manager</span><span class="skill-tag">AWS</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">IntelliJ IDEA</span><span class="skill-tag">VS Code</span><span class="skill-tag">Eclipse</span><span class="skill-tag">PyCharm</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Spinnaker</span><span class="skill-tag">Jenkins</span><span class="skill-tag">Maven</span><span class="skill-tag">Gradle</span><span class="skill-tag">GitLab</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-label">Background</div>
+      <div class="section-title">Education</div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="exp-left">
+          <div class="exp-date">2019 – 2021</div>
+        </div>
+        <div>
+          <div class="exp-role">Master's Degree in Computer Science</div>
+          <div class="exp-org">The University of Texas at Arlington</div>
+          <div class="exp-desc">Graduated in May 2021.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box">
+      <h3>Let’s Connect</h3>
+      <p>I’m open to full-time opportunities in software development and AI engineering, especially roles focused on backend systems, platform engineering, and intelligent developer tooling.</p>
+      <div class="contact-links">
+        <a href="mailto:abhogte@gmail.com" class="contact-btn">Email</a>
+        <a href="https://www.linkedin.com/in/adityabhogte/" class="contact-btn" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Abhogte" class="contact-btn" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footer"> © Copyrights © 2026 Aditya Bhogte. All Rights Reserved. Hosted on GitHub Pages.</div>
+</body>
+</html>
